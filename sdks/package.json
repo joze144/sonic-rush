@@ -1,0 +1,35 @@
+{
+  "name": "@sonic-rush/sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for Sonic Rush Solana programs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "solana",
+    "anchor",
+    "typescript",
+    "sdk",
+    "sonic-rush"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "@solana/spl-token": "^0.4.13",
+    "@coral-xyz/anchor": "^0.31.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "dist",
+    "types"
+  ]
+}
