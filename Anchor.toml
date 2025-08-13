@@ -7,6 +7,7 @@ skip-lint = false
 
 [programs.localnet]
 sonic_rush = "DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj"
+task = "5168hBAt3ZMd4QMnaRCHYAZCzN1Sv4qfzAWdKkbDzcSZ"
 
 [registry]
 url = "https://api.apr.dev"
