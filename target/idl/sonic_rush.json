@@ -1,0 +1,438 @@
+{
+  "address": "DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj",
+  "metadata": {
+    "name": "sonic_rush",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "claim_token",
+      "discriminator": [
+        116,
+        206,
+        27,
+        191,
+        166,
+        19,
+        0,
+        73
+      ],
+      "accounts": [
+        {
+          "name": "claimer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  67,
+                  79,
+                  78,
+                  70,
+                  73,
+                  71
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "group_name"
+              }
+            ]
+          }
+        },
+        {
+          "name": "group_token_mint",
+          "writable": true
+        },
+        {
+          "name": "claimer_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "claimer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "group_token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "group_name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "fee_and_rent_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "main_signing_authority",
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  67,
+                  79,
+                  78,
+                  70,
+                  73,
+                  71
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "name"
+              }
+            ]
+          }
+        },
+        {
+          "name": "group_token_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  114,
+                  111,
+                  117,
+                  112,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "name"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "members",
+          "type": {
+            "vec": "pubkey"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GroupConfigAccount",
+      "discriminator": [
+        161,
+        44,
+        109,
+        29,
+        159,
+        109,
+        42,
+        243
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "InitializeGroupEvent",
+      "discriminator": [
+        45,
+        69,
+        172,
+        111,
+        173,
+        156,
+        97,
+        173
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidMainSigningAuthority",
+      "msg": "Invalid main signing authority"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidSigningAuthority",
+      "msg": "Invalid signing authority"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidBackAuthority",
+      "msg": "Invalid back authority"
+    },
+    {
+      "code": 6003,
+      "name": "ValueIsZero",
+      "msg": "Value is zero"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidLength",
+      "msg": "Invalid length"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidPercentage",
+      "msg": "Invalid percentage"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidPaymentSupply",
+      "msg": "Invalid payment supply"
+    },
+    {
+      "code": 6007,
+      "name": "GroupTokenDisable",
+      "msg": "Group token disable"
+    },
+    {
+      "code": 6008,
+      "name": "UserAccountDisable",
+      "msg": "User account disable"
+    },
+    {
+      "code": 6009,
+      "name": "UserIndexAccountDisable",
+      "msg": "User index account disable"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidUserIndex",
+      "msg": "Invalid user index"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidConvertAmount",
+      "msg": "Invalid convert amount"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidGenerateAmount",
+      "msg": "Invalid generate amount"
+    },
+    {
+      "code": 6013,
+      "name": "CannotClaim",
+      "msg": "Cannot claim"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidTokenAccountAuthority",
+      "msg": "Invalid token account authority"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidTokenAmountForClaimRequest",
+      "msg": "Invalid token amount for claim request"
+    },
+    {
+      "code": 6016,
+      "name": "AlreadyClaimed",
+      "msg": "Already claimed"
+    },
+    {
+      "code": 6017,
+      "name": "NotAGroupMember",
+      "msg": "Not a group member"
+    }
+  ],
+  "types": [
+    {
+      "name": "GroupConfigAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "last_block_timestamp",
+            "docs": [
+              "timestamp when account updated"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "name",
+            "docs": [
+              "group name"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "main_signing_authority",
+            "docs": [
+              "program main signing authority"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "members",
+            "docs": [
+              "group members"
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "group_token_mint",
+            "docs": [
+              "group token mint address"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "claimed_members",
+            "docs": [
+              "members who have claimed their tokens"
+            ],
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeGroupEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "members",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "group_token_mint",
+            "type": "pubkey"
+          }
+        ]
+      }
+    }
+  ]
+}
