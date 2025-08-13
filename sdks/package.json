@@ -1,7 +1,7 @@
 {
-  "name": "@sonic-rush/sdk",
+  "name": "@squad/sdk",
   "version": "1.0.0",
-  "description": "TypeScript SDK for Sonic Rush Solana programs",
+  "description": "TypeScript SDK for Squad Solana programs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,7 +15,7 @@
     "anchor",
     "typescript",
     "sdk",
-    "sonic-rush"
+    "squad"
   ],
   "author": "",
   "license": "MIT",

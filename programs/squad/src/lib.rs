@@ -7,10 +7,10 @@ mod error;
 
 use instructions::*;
 
-declare_id!("DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj");
+declare_id!("AQehvXopTZuh9qT3jdZ8L1RZumq1eqhmLAM6avWNNJte");
 
 #[program]
-pub mod sonic_rush {
+pub mod squad {
     use super::*;
 
     pub fn initialize(

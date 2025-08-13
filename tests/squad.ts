@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { SonicRush } from "../target/types/sonic_rush";
+import { Squad } from "../target/types/squad";
 import { PublicKey, Keypair, SystemProgram } from "@solana/web3.js";
 import { 
   TOKEN_2022_PROGRAM_ID, 
@@ -11,12 +11,12 @@ import {
 } from "@solana/spl-token";
 import { assert, expect } from "chai";
 
-describe("sonic-rush", () => {
+describe("squad", () => {
   // Configure the client to use the local cluster.
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
 
-  const program = anchor.workspace.sonicRush as Program<SonicRush>;
+  const program = anchor.workspace.squad as Program<Squad>;
 
   // Test accounts
   const payer = provider.wallet;

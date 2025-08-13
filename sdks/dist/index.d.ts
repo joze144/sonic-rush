@@ -1,25 +1,25 @@
 import { Connection, PublicKey } from '@solana/web3.js';
 import { AnchorProvider } from '@coral-xyz/anchor';
-import { SonicRushSDK } from './sonic-rush';
+import { SquadSDK } from './squad';
 import { TaskSDK } from './task';
 export interface SDKConfig {
     connection: Connection;
     provider?: AnchorProvider;
-    sonicRushProgramId?: PublicKey;
+    squadProgramId?: PublicKey;
     taskProgramId?: PublicKey;
 }
-export declare class SonicRushProjectSDK {
-    sonicRush: SonicRushSDK;
+export declare class SquadProjectSDK {
+    squad: SquadSDK;
     task: TaskSDK;
     connection: Connection;
     private constructor();
-    static init(config: SDKConfig): Promise<SonicRushProjectSDK>;
+    static init(config: SDKConfig): Promise<SquadProjectSDK>;
     static getDefaultProgramIds(): {
-        sonicRush: PublicKey;
+        squad: PublicKey;
         task: PublicKey;
     };
 }
-export * from './sonic-rush';
+export * from './squad';
 export * from './task';
-export { SonicRushProjectSDK as default };
+export { SquadProjectSDK as default };
 //# sourceMappingURL=index.d.ts.map

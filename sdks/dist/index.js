@@ -17,23 +17,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = exports.SonicRushProjectSDK = void 0;
+exports.default = exports.SquadProjectSDK = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const anchor_1 = require("@coral-xyz/anchor");
-const sonic_rush_1 = require("./sonic-rush");
+const squad_1 = require("./squad");
 const task_1 = require("./task");
-const sonic_rush_json_1 = __importDefault(require("../../target/idl/sonic_rush.json"));
+const squad_json_1 = __importDefault(require("../../target/idl/squad.json"));
 const task_json_1 = __importDefault(require("../../target/idl/task.json"));
-class SonicRushProjectSDK {
-    constructor(connection, sonicRushSDK, taskSDK) {
+class SquadProjectSDK {
+    constructor(connection, squadSDK, taskSDK) {
         this.connection = connection;
-        this.sonicRush = sonicRushSDK;
+        this.squad = squadSDK;
         this.task = taskSDK;
     }
     static async init(config) {
         const { connection, provider } = config;
-        const sonicRushProgramId = config.sonicRushProgramId ||
-            new web3_js_1.PublicKey(sonic_rush_json_1.default.address);
+        const squadProgramId = config.squadProgramId ||
+            new web3_js_1.PublicKey(squad_json_1.default.address);
         const taskProgramId = config.taskProgramId ||
             new web3_js_1.PublicKey(task_json_1.default.address);
         let anchorProvider;
@@ -47,21 +47,21 @@ class SonicRushProjectSDK {
                 publicKey: web3_js_1.PublicKey.default,
             };
         }
-        const sonicRushProgram = new anchor_1.Program(sonic_rush_json_1.default, anchorProvider);
+        const squadProgram = new anchor_1.Program(squad_json_1.default, anchorProvider);
         const taskProgram = new anchor_1.Program(task_json_1.default, anchorProvider);
-        const sonicRushSDK = new sonic_rush_1.SonicRushSDK(sonicRushProgram, sonicRushProgramId);
+        const squadSDK = new squad_1.SquadSDK(squadProgram, squadProgramId);
         const taskSDK = new task_1.TaskSDK(taskProgram, taskProgramId);
-        return new SonicRushProjectSDK(connection, sonicRushSDK, taskSDK);
+        return new SquadProjectSDK(connection, squadSDK, taskSDK);
     }
     static getDefaultProgramIds() {
         return {
-            sonicRush: new web3_js_1.PublicKey(sonic_rush_json_1.default.address),
+            squad: new web3_js_1.PublicKey(squad_json_1.default.address),
             task: new web3_js_1.PublicKey(task_json_1.default.address),
         };
     }
 }
-exports.SonicRushProjectSDK = SonicRushProjectSDK;
-exports.default = SonicRushProjectSDK;
-__exportStar(require("./sonic-rush"), exports);
+exports.SquadProjectSDK = SquadProjectSDK;
+exports.default = SquadProjectSDK;
+__exportStar(require("./squad"), exports);
 __exportStar(require("./task"), exports);
 //# sourceMappingURL=index.js.map

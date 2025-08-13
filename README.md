@@ -1,11 +1,11 @@
-# Sonic Rush
+# Squad
 
 A Solana program built with Anchor framework for token claiming functionality with group-based access control.
 
 ## Overview
 
-Sonic Rush consists of two main programs:
-- **sonic-rush**: Core token claiming functionality with group management
+Squad consists of two main programs:
+- **squad**: Core token claiming functionality with group management
 - **task**: Task-based reward distribution system
 
 ## Prerequisites
@@ -21,7 +21,7 @@ Sonic Rush consists of two main programs:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd sonic-rush
+cd squad
 
 # Install dependencies
 yarn install
@@ -55,7 +55,7 @@ anchor test
 anchor test --skip-local-validator
 
 # Run specific test file
-yarn run ts-mocha tests/sonic-rush.ts
+yarn run ts-mocha tests/squad.ts
 ```
 
 ### Code Quality
@@ -70,7 +70,7 @@ npm run lint:fix
 
 ## Program Structure
 
-### Sonic Rush Program
+### Squad Program
 
 **Program ID**: `DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj`
 
@@ -122,7 +122,7 @@ The project is configured through `Anchor.toml`:
 
 ```
 ├── programs/
-│   ├── sonic-rush/          # Main token claiming program
+│   ├── squad/          # Main token claiming program
 │   │   └── src/
 │   │       ├── instructions/
 │   │       ├── states/

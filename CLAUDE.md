@@ -1,14 +1,14 @@
-# Sonic Rush - Solana Program
+# Squad - Solana Program
 
 This is an Anchor-based Solana program project consisting of two programs:
-1. **sonic-rush** - Core token claiming functionality with group-based access control
+1. **squad** - Core token claiming functionality with group-based access control
 2. **task** - Task-based reward distribution system
 
 ## Project Structure
 
-- `programs/sonic-rush/src/` - Main token claiming program (Program ID: DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj)
+- `programs/squad/src/` - Main token claiming program (Program ID: DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj)
 - `programs/task/src/` - Task-based reward program (Program ID: 5168hBAt3ZMd4QMnaRCHYAZCzN1Sv4qfzAWdKkbDzcSZ)
-- `tests/` - TypeScript integration tests (sonic-rush.ts, task.ts)
+- `tests/` - TypeScript integration tests (squad.ts, task.ts)
 - `app/` - Frontend application (if applicable)
 - `migrations/` - Deployment scripts
 
@@ -58,7 +58,7 @@ anchor verify <program-id>
 
 ## Program Instructions
 
-### Sonic Rush Program
+### Squad Program
 - `initialize(name, members)` - Initialize a new group with specified members
 - `claim_token(group_name)` - Claim tokens if user is a member of the group
 
@@ -72,7 +72,7 @@ anchor verify <program-id>
 
 - Project uses Anchor framework v0.31.1
 - Built for Solana blockchain
-- Includes two separate programs: sonic-rush (group-based token claiming) and task (reward distribution)
+- Includes two separate programs: squad (group-based token claiming) and task (reward distribution)
 - Uses Yarn as package manager
 - Test files use Mocha, Chai, and TypeScript for integration testing
 - Supports deployment to localnet, devnet, and mainnet

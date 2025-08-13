@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-sonic_rush = "DHiUDknnqsFXtm1RuZMvtx58QSg32uhhym8nTqNhtyvj"
+squad = "AQehvXopTZuh9qT3jdZ8L1RZumq1eqhmLAM6avWNNJte"
 task = "5168hBAt3ZMd4QMnaRCHYAZCzN1Sv4qfzAWdKkbDzcSZ"
 
 [registry]

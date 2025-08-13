@@ -22,7 +22,7 @@ export interface ClaimTokenParams {
   claimer: PublicKey;
 }
 
-export class SonicRushSDK {
+export class SquadSDK {
   private program: any;
   private programId: PublicKey;
 
