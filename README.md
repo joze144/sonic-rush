@@ -1,8 +1,53 @@
-# Squad
+# Squads
 
-A Solana program built with Anchor framework for token claiming functionality with group-based access control.
+Squad transform isolated influencer actions into coordinated attention armies, where elite KOLs become generals who strategically deploy community firepower to crypto projects. It is a paradigm shift from observing attention to engineering it at scale.
 
-## Overview
+[Squad Web Client](https://sonic-squad-u3zv.vercel.app/)
+
+<img width="1213" height="653" alt="Screenshot 2025-08-14 at 19 24 47" src="https://github.com/user-attachments/assets/d3382708-1c9f-498e-a0d3-bbc4836e295d" />
+
+## Problem Statement
+
+
+
+## Features
+
+**"Keys buy entry, squads amplify reach, and collective clout conquers campaigns to split the prize pool."**
+
+> "Purchase a key or invite by eilte KOL → Join an elite squad → Co-create content → Battle for rewards → Profit together."
+> 
+
+### 🔑 **Squad Keys: Tokenized Attention Assets**
+
+- Elite KOLs can form Squads
+- Recruitment pass for Amplifier Creators with Whitelist
+- Squad SPL Token as a tradable attention asset
+
+### 📝 **Tasks: Attention Maketplace**
+
+- Squad members are competing for attention grab through task completion
+- Task completion yields rewards for the whole squad
+- Oracle is determining price distribution based on squad that earned it and squads SPL token distribution 
+
+### **🎯 Why It’s Addictive:**
+
+- **Elite KOLs**: Monetize authority by selling keys (recurring revenue).
+- **Members**: Buy keys for passive upside + status boost.
+- **Squads**: Turn content creation into team sports (win-or-burn stakes).
+- **Advertisers**: Pay only for provable, amplified attention.
+
+### **💥 vs. Kaito/Cookie:**
+
+While others *measure* attention, **Squads weaponize it** through coordinated creation and tokenized participation.
+
+## Tech Stack
+
+- **Blockchain**: SVM Programs, deployed to Solana devnet
+- **Frontend**: React, Tailwind CSS, Next.JS
+- **SDK** Typescript Program Instructions Wrapper
+- **Deployment** Vercel
+
+## Programs Overview
 
 Squad consists of two main programs:
 - **squad**: Core token claiming functionality with group management
@@ -136,7 +181,8 @@ The project is configured through `Anchor.toml`:
 │           └── lib.rs
 ├── tests/                   # Integration tests
 ├── migrations/              # Deployment scripts
-└── app/                     # Frontend application (if applicable)
+├── sdks/                    # TypeScript SDK Program Instruction Wrappers
+└── app/                     # Frontend application
 ```
 
 ## License
