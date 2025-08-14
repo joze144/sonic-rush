@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -19,6 +19,8 @@ import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    
     // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
     const network = WalletAdapterNetwork.Devnet;
 
@@ -44,27 +46,23 @@ export default function App({ Component, pageProps }: AppProps) {
                         flexDirection: 'column',
                         backgroundColor: '#f8f9fa'
                     }}>
-                        <header style={{
-                            padding: '1rem 2rem',
-                            borderBottom: '1px solid #e9ecef',
-                            backgroundColor: 'white',
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                                <Link href="/" style={{ textDecoration: 'none' }}>
-                                    <h1 style={{ 
-                                        color: '#2c3e50', 
-                                        cursor: 'pointer',
-                                        margin: 0,
-                                        fontSize: '1.8rem'
-                                    }}>
-                                        Squad App
-                                    </h1>
-                                </Link>
-                                <nav style={{ display: 'flex', gap: '1.5rem' }}>
+                        <header className="navbar">
+                            <div className="navbar-container">
+                                <div className="navbar-brand">
+                                    <Link href="/" style={{ textDecoration: 'none' }}>
+                                        <h1 style={{ 
+                                            color: '#2c3e50', 
+                                            cursor: 'pointer',
+                                            margin: 0,
+                                            fontSize: '1.8rem'
+                                        }}>
+                                            Squad App
+                                        </h1>
+                                    </Link>
+                                </div>
+
+                                {/* Desktop Navigation */}
+                                <nav className="navbar-nav desktop-nav">
                                     <Link 
                                         href="/squad" 
                                         style={{
@@ -94,17 +92,87 @@ export default function App({ Component, pageProps }: AppProps) {
                                         Tasks
                                     </Link>
                                 </nav>
+
+                                {/* Desktop Wallet Section */}
+                                <div className="navbar-wallet desktop-wallet">
+                                    <span style={{ 
+                                        fontSize: '0.9rem', 
+                                        color: '#6c757d',
+                                        fontWeight: '500'
+                                    }}>
+                                        Devnet
+                                    </span>
+                                    <WalletMultiButton />
+                                    <WalletDisconnectButton />
+                                </div>
+
+                                {/* Mobile Menu Button */}
+                                <button 
+                                    className="mobile-menu-button"
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                    style={{
+                                        display: 'none',
+                                        background: 'none',
+                                        border: 'none',
+                                        fontSize: '1.5rem',
+                                        cursor: 'pointer',
+                                        padding: '0.5rem',
+                                        color: '#2c3e50'
+                                    }}
+                                >
+                                    {isMobileMenuOpen ? '✕' : '☰'}
+                                </button>
                             </div>
-                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                                <span style={{ 
-                                    fontSize: '0.9rem', 
-                                    color: '#6c757d',
-                                    fontWeight: '500'
-                                }}>
-                                    Devnet
-                                </span>
-                                <WalletMultiButton />
-                                <WalletDisconnectButton />
+
+                            {/* Mobile Navigation Menu */}
+                            <div className={`mobile-nav ${isMobileMenuOpen ? 'mobile-nav-open' : ''}`}>
+                                <Link 
+                                    href="/squad" 
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: router.pathname === '/squad' ? '#007bff' : '#6c757d',
+                                        fontWeight: router.pathname === '/squad' ? '600' : '500',
+                                        fontSize: '1.1rem',
+                                        padding: '1rem',
+                                        display: 'block',
+                                        borderBottom: '1px solid #e9ecef'
+                                    }}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Squad
+                                </Link>
+                                <Link 
+                                    href="/tasks" 
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: router.pathname === '/tasks' ? '#007bff' : '#6c757d',
+                                        fontWeight: router.pathname === '/tasks' ? '600' : '500',
+                                        fontSize: '1.1rem',
+                                        padding: '1rem',
+                                        display: 'block',
+                                        borderBottom: '1px solid #e9ecef'
+                                    }}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Tasks
+                                </Link>
+                                <div className="mobile-wallet">
+                                    <span style={{ 
+                                        fontSize: '0.9rem', 
+                                        color: '#6c757d',
+                                        fontWeight: '500',
+                                        padding: '1rem',
+                                        display: 'block'
+                                    }}>
+                                        Devnet
+                                    </span>
+                                    <div style={{ padding: '0 1rem 1rem' }}>
+                                        <WalletMultiButton />
+                                        <div style={{ marginTop: '0.5rem' }}>
+                                            <WalletDisconnectButton />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </header>
                         <main style={{ flex: 1, padding: '2rem' }}>
