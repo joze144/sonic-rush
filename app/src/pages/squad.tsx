@@ -127,7 +127,7 @@ export default function SquadPage() {
 
   if (!wallet.connected) {
     return (
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
+      <div className="wallet-warning">
         <h1>Squad Management</h1>
         <p>Please connect your wallet to manage squads.</p>
       </div>
@@ -135,46 +135,27 @@ export default function SquadPage() {
   }
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>Squad Management</h1>
+    <div className="page-container">
+      <h1 className="page-title">Squad Management</h1>
       
       {error && (
-        <div style={{
-          padding: '1rem',
-          backgroundColor: '#f8d7da',
-          border: '1px solid #f5c6cb',
-          borderRadius: '8px',
-          color: '#721c24',
-          marginBottom: '1rem'
-        }}>
+        <div className="alert alert-error">
           {error}
         </div>
       )}
 
       {success && (
-        <div style={{
-          padding: '1rem',
-          backgroundColor: '#d1e7dd',
-          border: '1px solid #badbcc',
-          borderRadius: '8px',
-          color: '#0f5132',
-          marginBottom: '1rem'
-        }}>
+        <div className="alert alert-success">
           {success}
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+      <div className="page-grid">
         {/* Create Squad */}
-        <div style={{ 
-          padding: '1.5rem', 
-          backgroundColor: 'white', 
-          borderRadius: '8px',
-          border: '1px solid #dee2e6'
-        }}>
+        <div className="page-section">
           <h2>Create New Squad</h2>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>
+          <div className="form-group">
+            <label className="form-label">
               Squad Name:
             </label>
             <input
@@ -182,17 +163,11 @@ export default function SquadPage() {
               value={squadName}
               onChange={(e) => setSquadName(e.target.value)}
               placeholder="Enter squad name"
-              style={{
-                width: '100%',
-                padding: '0.5rem',
-                border: '1px solid #ced4da',
-                borderRadius: '4px',
-                fontSize: '1rem'
-              }}
+              className="form-input"
             />
           </div>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>
+          <div className="form-group">
+            <label className="form-label">
               Member Addresses (one per line):
             </label>
             <textarea
@@ -200,44 +175,24 @@ export default function SquadPage() {
               onChange={(e) => setMemberAddresses(e.target.value)}
               placeholder="Enter Solana addresses, one per line"
               rows={5}
-              style={{
-                width: '100%',
-                padding: '0.5rem',
-                border: '1px solid #ced4da',
-                borderRadius: '4px',
-                fontSize: '1rem',
-                fontFamily: 'monospace'
-              }}
+              className="form-textarea"
             />
           </div>
           <button
             onClick={handleCreateSquad}
             disabled={loading || !squadName.trim()}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              backgroundColor: loading ? '#6c757d' : '#007bff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              fontSize: '1rem',
-              cursor: loading ? 'not-allowed' : 'pointer'
-            }}
+            className={`btn ${loading || !squadName.trim() ? '' : 'btn-primary'}`}
+            style={{ width: '100%' }}
           >
             {loading ? 'Creating...' : 'Create Squad'}
           </button>
         </div>
 
         {/* Join Squad */}
-        <div style={{ 
-          padding: '1.5rem', 
-          backgroundColor: 'white', 
-          borderRadius: '8px',
-          border: '1px solid #dee2e6'
-        }}>
+        <div className="page-section">
           <h2>Join Existing Squad</h2>
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>
+          <div className="form-group">
+            <label className="form-label">
               Squad Name:
             </label>
             <input
@@ -245,28 +200,14 @@ export default function SquadPage() {
               value={joinSquadName}
               onChange={(e) => setJoinSquadName(e.target.value)}
               placeholder="Enter squad name to join"
-              style={{
-                width: '100%',
-                padding: '0.5rem',
-                border: '1px solid #ced4da',
-                borderRadius: '4px',
-                fontSize: '1rem'
-              }}
+              className="form-input"
             />
           </div>
           <button
             onClick={handleJoinSquad}
             disabled={loading || !joinSquadName.trim()}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              backgroundColor: loading ? '#6c757d' : '#28a745',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              fontSize: '1rem',
-              cursor: loading ? 'not-allowed' : 'pointer'
-            }}
+            className={`btn ${loading || !joinSquadName.trim() ? '' : 'btn-success'}`}
+            style={{ width: '100%' }}
           >
             {loading ? 'Joining...' : 'Join Squad & Claim Token'}
           </button>
@@ -277,12 +218,7 @@ export default function SquadPage() {
       </div>
 
       {/* Squad Info */}
-      <div style={{ 
-        padding: '1.5rem', 
-        backgroundColor: 'white', 
-        borderRadius: '8px',
-        border: '1px solid #dee2e6'
-      }}>
+      <div className="page-section">
         <h2>Squad Information</h2>
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
           <input
@@ -290,26 +226,13 @@ export default function SquadPage() {
             value={searchSquadName}
             onChange={(e) => setSearchSquadName(e.target.value)}
             placeholder="Enter squad name to search"
-            style={{
-              flex: 1,
-              padding: '0.5rem',
-              border: '1px solid #ced4da',
-              borderRadius: '4px',
-              fontSize: '1rem'
-            }}
+            className="form-input"
+            style={{ flex: 1 }}
           />
           <button
             onClick={handleSearchSquad}
             disabled={loading || !searchSquadName.trim()}
-            style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: loading ? '#6c757d' : '#6f42c1',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              fontSize: '1rem',
-              cursor: loading ? 'not-allowed' : 'pointer'
-            }}
+            className={`btn ${loading || !searchSquadName.trim() ? '' : 'btn-purple'}`}
           >
             {loading ? 'Searching...' : 'Search'}
           </button>
@@ -318,20 +241,25 @@ export default function SquadPage() {
         {squadConfig && (
           <div style={{
             padding: '1rem',
-            backgroundColor: '#f8f9fa',
-            border: '1px solid #e9ecef',
-            borderRadius: '4px'
+            background: 'rgba(50, 255, 220, 0.1)',
+            border: '1px solid rgba(50, 255, 220, 0.3)',
+            borderRadius: '12px'
           }}>
-            <h3>Squad: {searchSquadName}</h3>
-            <p><strong>Creator:</strong> {squadConfig.mainSigningAuthority?.toString()}</p>
-            <p><strong>Members:</strong> {squadConfig.members?.length || 0}</p>
-            <p><strong>Token Mint:</strong> {squadConfig.groupTokenMint?.toString()}</p>
+            <h3 style={{ color: '#32FFDC', marginBottom: '1rem' }}>Squad: {searchSquadName}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}><strong>Creator:</strong> {squadConfig.mainSigningAuthority?.toString()}</p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}><strong>Members:</strong> {squadConfig.members?.length || 0}</p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}><strong>Token Mint:</strong> {squadConfig.groupTokenMint?.toString()}</p>
             {squadConfig.members && squadConfig.members.length > 0 && (
               <details>
-                <summary style={{ cursor: 'pointer', fontWeight: 'bold' }}>View Members</summary>
+                <summary style={{ cursor: 'pointer', fontWeight: 'bold', color: '#32FFDC' }}>View Members</summary>
                 <ul style={{ marginTop: '0.5rem', paddingLeft: '1rem' }}>
                   {squadConfig.members.map((member: any, index: number) => (
-                    <li key={index} style={{ fontFamily: 'monospace', fontSize: '0.9rem' }}>
+                    <li key={index} style={{ 
+                      fontFamily: 'Monaco, Menlo, Ubuntu Mono, monospace', 
+                      fontSize: '0.85rem', 
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      marginBottom: '0.25rem'
+                    }}>
                       {member.toString()}
                     </li>
                   ))}

@@ -43,20 +43,18 @@ export default function App({ Component, pageProps }: AppProps) {
                     <div style={{ 
                         minHeight: '100vh', 
                         display: 'flex', 
-                        flexDirection: 'column',
-                        backgroundColor: '#f8f9fa'
+                        flexDirection: 'column'
                     }}>
                         <header className="navbar">
                             <div className="navbar-container">
                                 <div className="navbar-brand">
                                     <Link href="/" style={{ textDecoration: 'none' }}>
                                         <h1 style={{ 
-                                            color: '#2c3e50', 
                                             cursor: 'pointer',
                                             margin: 0,
                                             fontSize: '1.8rem'
                                         }}>
-                                            Squad App
+                                            Squad
                                         </h1>
                                     </Link>
                                 </div>
@@ -65,29 +63,13 @@ export default function App({ Component, pageProps }: AppProps) {
                                 <nav className="navbar-nav desktop-nav">
                                     <Link 
                                         href="/squad" 
-                                        style={{
-                                            textDecoration: 'none',
-                                            color: router.pathname === '/squad' ? '#007bff' : '#6c757d',
-                                            fontWeight: router.pathname === '/squad' ? '600' : '500',
-                                            fontSize: '1.1rem',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '4px',
-                                            transition: 'all 0.2s ease'
-                                        }}
+                                        className={router.pathname === '/squad' ? 'active' : ''}
                                     >
                                         Squad
                                     </Link>
                                     <Link 
                                         href="/tasks" 
-                                        style={{
-                                            textDecoration: 'none',
-                                            color: router.pathname === '/tasks' ? '#007bff' : '#6c757d',
-                                            fontWeight: router.pathname === '/tasks' ? '600' : '500',
-                                            fontSize: '1.1rem',
-                                            padding: '0.5rem 1rem',
-                                            borderRadius: '4px',
-                                            transition: 'all 0.2s ease'
-                                        }}
+                                        className={router.pathname === '/tasks' ? 'active' : ''}
                                     >
                                         Tasks
                                     </Link>
@@ -95,13 +77,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
                                 {/* Desktop Wallet Section */}
                                 <div className="navbar-wallet desktop-wallet">
-                                    <span style={{ 
-                                        fontSize: '0.9rem', 
-                                        color: '#6c757d',
-                                        fontWeight: '500'
-                                    }}>
-                                        Devnet
-                                    </span>
+                                    <span>Devnet</span>
                                     <WalletMultiButton />
                                     <WalletDisconnectButton />
                                 </div>
@@ -112,12 +88,9 @@ export default function App({ Component, pageProps }: AppProps) {
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                     style={{
                                         display: 'none',
-                                        background: 'none',
-                                        border: 'none',
                                         fontSize: '1.5rem',
                                         cursor: 'pointer',
-                                        padding: '0.5rem',
-                                        color: '#2c3e50'
+                                        padding: '0.75rem'
                                     }}
                                 >
                                     {isMobileMenuOpen ? '✕' : '☰'}
@@ -128,45 +101,21 @@ export default function App({ Component, pageProps }: AppProps) {
                             <div className={`mobile-nav ${isMobileMenuOpen ? 'mobile-nav-open' : ''}`}>
                                 <Link 
                                     href="/squad" 
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: router.pathname === '/squad' ? '#007bff' : '#6c757d',
-                                        fontWeight: router.pathname === '/squad' ? '600' : '500',
-                                        fontSize: '1.1rem',
-                                        padding: '1rem',
-                                        display: 'block',
-                                        borderBottom: '1px solid #e9ecef'
-                                    }}
+                                    className={`mobile-nav-link ${router.pathname === '/squad' ? 'active' : ''}`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Squad
                                 </Link>
                                 <Link 
                                     href="/tasks" 
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: router.pathname === '/tasks' ? '#007bff' : '#6c757d',
-                                        fontWeight: router.pathname === '/tasks' ? '600' : '500',
-                                        fontSize: '1.1rem',
-                                        padding: '1rem',
-                                        display: 'block',
-                                        borderBottom: '1px solid #e9ecef'
-                                    }}
+                                    className={`mobile-nav-link ${router.pathname === '/tasks' ? 'active' : ''}`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Tasks
                                 </Link>
                                 <div className="mobile-wallet">
-                                    <span style={{ 
-                                        fontSize: '0.9rem', 
-                                        color: '#6c757d',
-                                        fontWeight: '500',
-                                        padding: '1rem',
-                                        display: 'block'
-                                    }}>
-                                        Devnet
-                                    </span>
-                                    <div style={{ padding: '0 1rem 1rem' }}>
+                                    <span className="mobile-wallet-badge">Devnet</span>
+                                    <div className="mobile-wallet-buttons">
                                         <WalletMultiButton />
                                         <div style={{ marginTop: '0.5rem' }}>
                                             <WalletDisconnectButton />

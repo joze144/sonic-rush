@@ -6,65 +6,98 @@ export default function Home() {
     const { connected } = useWallet();
 
     return (
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-            <h1 style={{ fontSize: '3rem', marginBottom: '2rem' }}>Welcome to Squad</h1>
-            <p style={{ fontSize: '1.2rem', marginBottom: '3rem', color: '#6c757d' }}>
-                Create your own squad, join existing squads, and manage task rewards on Solana
-            </p>
-            
-            {!connected ? (
-                <div style={{ 
-                    padding: '2rem', 
-                    backgroundColor: '#fff3cd', 
-                    border: '1px solid #ffeaa7',
-                    borderRadius: '8px',
-                    marginBottom: '2rem'
-                }}>
-                    <h3>Connect Your Wallet</h3>
-                    <p>Please connect your Solana wallet to get started</p>
+        <div className="home-container">
+            {/* Hero Section */}
+            <section className="hero-section">
+                <div className="hero-content">
+                    <h1 className="hero-title">
+                        Build Your Squad on <span className="highlight">Solana</span>
+                    </h1>
+                    <p className="hero-subtitle">
+                        Create decentralized teams, manage token rewards, and coordinate tasks with your community on the Solana blockchain.
+                    </p>
+                    
+                    {!connected ? (
+                        <div className="wallet-prompt">
+                            <h3>🔗 Connect Your Wallet</h3>
+                            <p>Please connect your Solana wallet to get started with Squad</p>
+                        </div>
+                    ) : (
+                        <div className="hero-actions">
+                            <Link href="/squad" className="btn btn-primary">
+                                Launch Squad
+                            </Link>
+                            <Link href="/tasks" className="btn btn-secondary">
+                                Manage Tasks
+                            </Link>
+                        </div>
+                    )}
                 </div>
-            ) : (
-                <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-                    <Link href="/squad" className="btn btn-primary" style={{
-                        fontSize: '1.1rem',
-                        fontWeight: 'bold',
-                        padding: '1.5rem 2rem'
-                    }}>
-                        Squad Management
-                    </Link>
-                    <Link href="/tasks" className="btn btn-success" style={{
-                        fontSize: '1.1rem',
-                        fontWeight: 'bold',
-                        padding: '1.5rem 2rem'
-                    }}>
-                        Task & Rewards
-                    </Link>
+                
+                {/* Animated background elements */}
+                <div className="hero-bg">
+                    <div className="floating-element element-1"></div>
+                    <div className="floating-element element-2"></div>
+                    <div className="floating-element element-3"></div>
                 </div>
-            )}
-            
-            <div style={{ marginTop: '4rem', textAlign: 'left' }}>
-                <h2>Features</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem' }}>
-                    <div className="card" style={{ padding: '1.5rem' }}>
+            </section>
+
+            {/* Features Section */}
+            <section className="features-section">
+                <h2 className="section-title">Powerful Features</h2>
+                <div className="features-grid">
+                    <div className="feature-card">
+                        <div className="feature-icon">👥</div>
                         <h3>Squad Management</h3>
-                        <ul style={{ textAlign: 'left', marginTop: '1rem' }}>
-                            <li>Create your own squad</li>
+                        <ul className="feature-list">
+                            <li>Create and customize your squad</li>
                             <li>Whitelist member addresses</li>
                             <li>Join existing squads</li>
-                            <li>Claim SPL tokens if whitelisted</li>
+                            <li>Claim SPL tokens seamlessly</li>
                         </ul>
                     </div>
-                    <div className="card" style={{ padding: '1.5rem' }}>
-                        <h3>Task Rewards</h3>
-                        <ul style={{ textAlign: 'left', marginTop: '1rem' }}>
+                    
+                    <div className="feature-card">
+                        <div className="feature-icon">🎯</div>
+                        <h3>Task & Rewards</h3>
+                        <ul className="feature-list">
                             <li>Create tasks for your squad</li>
                             <li>Submit reward distributions</li>
-                            <li>Claim rewards for completed tasks</li>
-                            <li>Track task completion status</li>
+                            <li>Claim rewards automatically</li>
+                            <li>Track completion status</li>
+                        </ul>
+                    </div>
+                    
+                    <div className="feature-card">
+                        <div className="feature-icon">⚡</div>
+                        <h3>Solana Powered</h3>
+                        <ul className="feature-list">
+                            <li>Lightning-fast transactions</li>
+                            <li>Low transaction fees</li>
+                            <li>Secure blockchain technology</li>
+                            <li>Decentralized governance</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="stats-section">
+                <div className="stats-grid">
+                    <div className="stat-item">
+                        <div className="stat-number">1000+</div>
+                        <div className="stat-label">Active Squads</div>
+                    </div>
+                    <div className="stat-item">
+                        <div className="stat-number">50K+</div>
+                        <div className="stat-label">Tasks Completed</div>
+                    </div>
+                    <div className="stat-item">
+                        <div className="stat-number">$2M+</div>
+                        <div className="stat-label">Rewards Distributed</div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
