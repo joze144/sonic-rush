@@ -8,6 +8,24 @@ Squad transform isolated influencer actions into coordinated attention armies, w
 
 ## Problem Statement
 
+The crypto attention economy suffers from structural inefficiencies that prevent optimal value creation and distribution among content creators, influencers, and token projects.
+
+### Key Pain Points
+
+- **Elite KOL Monetization Ceiling** - Top-tier Key Opinion Leaders hit revenue plateaus despite massive influence, unable to scale earnings beyond individual content creation limits.
+
+- **Amplifier Creator Exclusion** - Mid-tier creators with engaged audiences lack access to high-value campaigns and elite collaboration opportunities.
+
+- **Quality vs. Effort Misalignment** - Current reward systems fail to incentivize high-quality content, leading to low-effort posts that dilute ecosystem value.
+
+- **Fragmented Influence Distribution** - Individual creators operate in silos, preventing coordinated attention campaigns that could generate exponential viral impact.
+
+- **Passive Attention Measurement** - Existing platforms only track attention metrics rather than actively engineering and amplifying attention at scale.
+
+- **The Central Challenge** - How can we transform the crypto attention economy from fragmented individual performers into a coordinated system of tokenized attention assets that reward quality, enable scalable monetization, and engineer viral momentum rather than
+just measuring it?
+
+This requires a paradigm shift from observing attention to weaponizing it through coordinated squad-based campaigns where elite KOLs become strategic generals deploying amplifier creator armies for maximum impact.
 
 
 ## Features
