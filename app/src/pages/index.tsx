@@ -11,16 +11,16 @@ export default function Home() {
             <section className="hero-section">
                 <div className="hero-content">
                     <h1 className="hero-title">
-                        Build Your Squad on <span className="highlight">Solana</span>
+                        Build Your Squad
                     </h1>
                     <p className="hero-subtitle">
-                        Create decentralized teams, manage token rewards, and coordinate tasks with your community on the Solana blockchain.
+                        Create decentralized teams, manage token rewards, and coordinate tasks with your community on the Sonic SVM.
                     </p>
                     
                     {!connected ? (
                         <div className="wallet-prompt">
                             <h3>🔗 Connect Your Wallet</h3>
-                            <p>Please connect your Solana wallet to get started with Squad</p>
+                            <p>Please connect your Sonic wallet to get started with Squad</p>
                         </div>
                     ) : (
                         <div className="hero-actions">
@@ -70,7 +70,7 @@ export default function Home() {
                     
                     <div className="feature-card">
                         <div className="feature-icon">⚡</div>
-                        <h3>Solana Powered</h3>
+                        <h3>Sonic Powered</h3>
                         <ul className="feature-list">
                             <li>Lightning-fast transactions</li>
                             <li>Low transaction fees</li>
