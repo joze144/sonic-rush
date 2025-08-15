@@ -2,7 +2,9 @@
 
 Squad transform isolated influencer actions into coordinated attention armies, where elite KOLs become generals who strategically deploy community firepower to crypto projects. It is a paradigm shift from observing attention to engineering it at scale.
 
-[Squad Web Client](https://sonic-squad-u3zv.vercel.app/)
+## Demo
+
+- Live Demo: [Link to hosted version](https://sonic-squad-u3zv.vercel.app/)
 
 <img width="1213" height="653" alt="Screenshot 2025-08-14 at 19 24 47" src="https://github.com/user-attachments/assets/d3382708-1c9f-498e-a0d3-bbc4836e295d" />
 
@@ -203,6 +205,17 @@ The project is configured through `Anchor.toml`:
 └── app/                     # Frontend application
 ```
 
-## License
+## Challenges & Learnings
 
-ISC
+We were both new to solana program development. We learned a lot on how to design escrow, spl tokens, whitelists in programs. 
+
+## Team
+
+- **Yihan**: Role: Product design, Attention calculations
+- **Jozhe**: Role: Full-Stack Developer - [GitHub](https://github.com/joze144)
+
+## Future Improvements
+
+- Real time attention analytics
+- Oracle for task completion and reward distribution 
+- Index on chain data
